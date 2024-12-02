@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Carousel1 = () => {
   const slides = [
@@ -141,13 +141,12 @@ const Carousel1 = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-scroll logic
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
     }, 3000);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval);
   }, [currentIndex]);
 
   const handlePrev = () => {
@@ -168,7 +167,6 @@ const Carousel1 = () => {
   return (
     <main className="container mx-auto py-3 px-5 flex justify-between items-center min-h-2 bg-gray-50">
       <section className="w-full h-64 overflow-hidden relative">
-        {/* Slides Container */}
         <div
           className=" w-max flex transition-transform text-sm duration-700 ease-in-out gap-5"
           style={{ transform: `translateX(-${currentIndex * (13 / 4)}%)` }}
@@ -201,7 +199,6 @@ const Carousel1 = () => {
           ))}
         </div>
 
-        {/* Navigation Arrows */}
         <button
           onClick={handlePrev}
           className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-skyBlue  rounded-full hover:bg-gray-700 z-10"

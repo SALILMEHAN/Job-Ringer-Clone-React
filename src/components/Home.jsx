@@ -1,21 +1,19 @@
-import React from 'react'
-import Navbar from './Navbar'
-import SectionOne from './SectionOne'
-import SectionTwo from './SectionTwo'
-import Footer from './Footer'
-
+import Navbar from "./Navbar";
+import SectionOne from "./SectionOne";
+import SectionTwo from "./SectionTwo";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
-    <>
-
+    <div>
       <Navbar />
-      <SectionOne />
-      <SectionTwo />
+      <main>
+        <SectionOne />
+        <SectionTwo />
+      </main>
       <Footer />
+    </div>
+  );
+};
 
-    </>
-  )
-}
-
-export default Home
+export default Home;

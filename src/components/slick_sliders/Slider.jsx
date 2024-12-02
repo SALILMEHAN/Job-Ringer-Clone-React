@@ -1,4 +1,3 @@
-import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -6,17 +5,17 @@ const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 8,
-    slidesToSlide: 3, // optional, default to 1.
+    slidesToSlide: 3,
   },
   tablet: {
     breakpoint: { max: 1024, min: 768 },
     items: 6,
-    slidesToSlide: 2, // optional, default to 1.
+    slidesToSlide: 2,
   },
   mobile: {
     breakpoint: { max: 767, min: 464 },
     items: 2,
-    slidesToSlide: 1, // optional, default to 1.
+    slidesToSlide: 1,
   },
 };
 
@@ -41,35 +40,36 @@ const images = [
 
 const Slider = () => {
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden bg-gray-50 py-6">
+      <h2 className="text-2xl font-bold text-center mb-3">
+        FEATURED <span className="text-gray-700">EMPLOYERS</span>
+      </h2>
 
-    <h2 className="text-2xl font-bold text-center mb-3">FEATURED <span className=' text-gray-700'>EMPLOYERS</span></h2>
-    
-    <div className="p-4">
-      <Carousel
-        responsive={responsive}
-        autoPlay={true}
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        infinite={true}
-        partialVisible={false}
-        arrows={false}
-      >
-        {images.map((image, index) => (
-          <div
-            className="m-2 overflow-hidden rounded-lg border border-gray-300 p-4"
-            key={index}
-          >
-            <img
-              className="w-4/5 mx-auto rounded-lg h-4/5"
-              src={image}
-              alt={`Slide ${index + 1}`}
-            />
-          </div>
-        ))}
-      </Carousel>
-    </div>
+      <div className="p-4">
+        <Carousel
+          responsive={responsive}
+          autoPlay={true}
+          swipeable={true}
+          draggable={true}
+          showDots={false}
+          infinite={true}
+          partialVisible={false}
+          arrows={false}
+        >
+          {images.map((image, index) => (
+            <div
+              className="m-2 overflow-hidden rounded-lg border border-gray-200 p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
+              key={index}
+            >
+              <img
+                className="w-full h-16 object-contain mx-auto"
+                src={image}
+                alt={`Employer ${index + 1}`}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </div>
     </div>
   );
 };
